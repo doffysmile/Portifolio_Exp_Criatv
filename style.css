@@ -1,0 +1,368 @@
+/*BASE*/
+* {
+  box-sizing: border-box;
+}
+
+html, body { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  background: #000; 
+  color: var(--text); }
+
+body > * {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.site-header {
+  width: 100%;
+  max-width: 100%; /* header ocupa a largura toda */
+}
+
+
+/* CORES */
+:root {
+  --bg:      #000000;
+  --card:    #0a0a0a;
+  --muted:   #4a9e5c;
+  --accent:  #00ff41;
+  --text:    #b0ffb8;
+  --glass:   rgba(0, 255, 65, 0.03);
+  --radius:  12px;
+
+  font-family: "Courier New", Courier, monospace;
+}
+
+
+
+/* CONTAINER */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+
+/* HEADER*/
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.85);
+  border-bottom: 1px solid rgba(0, 255, 65, 0.15);
+  backdrop-filter: blur(6px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.7);
+  letter-spacing: 0.05em;
+}
+
+.site-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.site-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.site-nav a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.6);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: var(--text);
+  font-size: 1.25rem;
+}
+
+
+/* HERO*/
+.hero{
+    padding: 4rem 0;
+    width: 100%;
+}
+.hero h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  color: var(--accent);
+  text-shadow: 0 0 18px rgba(0, 255, 65, 0.5);
+}
+
+.hero h2 span {
+  color: var(--text);
+}
+
+.hero p {
+  color: var(--muted);
+  max-width: 60ch;
+}
+
+/* HERO LAYOUT */
+
+.hero-content{
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.hero-text{
+    flex: 1;
+}
+
+.hero-photo{
+    flex-shrink: 0;
+}
+
+/* FOTO */
+
+.hero-photo img{
+    width: 320px;
+    height: 320px;
+
+    object-fit: cover;
+
+    border-radius: 0;
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+
+    border: 2px solid var(--accent);
+
+    box-shadow:
+        0 0 15px rgba(0,255,65,0.3),
+        0 0 35px rgba(0,255,65,0.2);
+
+    transition: transform 0.3s ease;
+}
+
+.hero-photo img:hover{
+    transform: scale(1.03);
+}
+
+
+/* BOTOES */
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+  background: rgba(0, 255, 65, 0.1);
+  box-shadow: 0 0 18px rgba(0, 255, 65, 0.4);
+}
+
+
+/* SEÇOES*/
+.about,
+.skills,
+.projects,
+.contact {
+  background: var(--glass);
+  border-radius: var(--radius);
+  border: 1px solid rgba(0, 255, 65, 0.08);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.about h3,
+.skills h3,
+.projects h3,
+.contact h3 {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+  letter-spacing: 0.05em;
+  margin-top: 0;
+}
+
+
+/* SKILLS */
+.skill-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-list li {
+  padding: 0.5rem 0.75rem;
+  background: rgba(0, 255, 65, 0.04);
+  border: 1px solid rgba(0, 255, 65, 0.15);
+  border-radius: 8px;
+  color: var(--muted);
+  transition: color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.skill-list li:hover {
+  color: var(--accent);
+  border-color: rgba(0, 255, 65, 0.4);
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.2);
+}
+
+
+/* CURIOSIDADES*/
+.skills ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.skills ul li {
+  padding: 0.65rem 1rem;
+  background: rgba(0, 255, 65, 0.03);
+  border: 1px solid rgba(0, 255, 65, 0.1);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  color: var(--text);
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.skills ul li:hover {
+  background: rgba(0, 255, 65, 0.06);
+  border-color: rgba(0, 255, 65, 0.3);
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.15);
+}
+
+.automobilismo li {
+  background: rgba(0, 255, 65, 0.06);
+  border: 1px solid rgba(0, 255, 65, 0.3);
+  border-left: 3px solid var(--accent);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.automobilismo li a {
+  color: var(--accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.5);
+}
+
+.automobilismo li a::after {
+  content: "↗";
+  font-size: 0.85rem;
+  opacity: 0.7;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.automobilismo li a:hover::after {
+  opacity: 1;
+  transform: translate(2px, -2px);
+}
+
+
+/* =========================================
+   PROJETOS & COLEÇÕES
+   ========================================= */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 280px);
+  justify-content: center;
+  gap: 20px;
+}
+
+.colecoes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+
+  background: var(--card);
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  min-height: 420px;
+}
+
+.project-card:hover{
+  border-color: rgba(0, 255, 65, 0.35);
+  box-shadow: 0 0 16px rgba(0, 255, 65, 0.1);
+}
+
+.project-card img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+
+.collection-section{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.collection-card{
+    background: var(--card);
+    border: 1px solid rgba(0,255,65,0.1);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.collection-card h3{
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.collection-images{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.collection-images img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.collection-images img:hover{
+    transform: scale(1.03);
+}
